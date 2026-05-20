@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spreadsheet 活用ガイド｜花ノ宮あかり様</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      background: #f7f5f2;
+      color: #2d2d2d;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 48px 32px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; }
+    header .sub { margin-top: 10px; font-size: 0.85rem; opacity: 0.75; letter-spacing: 0.08em; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+    .section-title {
+      font-size: 1.3rem; font-weight: 700; color: #1a1a2e;
+      margin: 48px 0 20px; padding-bottom: 10px;
+      border-bottom: 3px solid #1a1a2e;
+    }
+    .subsection-title {
+      font-size: 1.1rem; font-weight: 700; color: #333;
+      margin: 28px 0 12px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .card h3 { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 12px; }
+    .card p { margin-bottom: 12px; }
+    table {
+      width: 100%; border-collapse: collapse; margin: 16px 0;
+      background: #fff; border-radius: 8px; overflow: hidden;
+    }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e8e8e8; font-size: 14px; }
+    th { background: #f5f5f5; font-weight: 700; color: #1a1a2e; }
+    .highlight { background: #fff8dc; padding: 16px; border-left: 4px solid #ffa500; margin: 16px 0; border-radius: 4px; }
+    .warning { background: #fff0f0; padding: 16px; border-left: 4px solid #ff4444; margin: 16px 0; border-radius: 4px; }
+    .info { background: #f0f8ff; padding: 16px; border-left: 4px solid #4488ff; margin: 16px 0; border-radius: 4px; }
+    .success { background: #f0fff0; padding: 16px; border-left: 4px solid #44bb44; margin: 16px 0; border-radius: 4px; }
+    ul, ol { margin-left: 24px; margin-bottom: 12px; }
+    li { margin-bottom: 8px; }
+    .step { display: flex; align-items: flex-start; margin-bottom: 16px; }
+    .step-num {
+      background: #1a1a2e; color: #fff; width: 32px; height: 32px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; flex-shrink: 0; margin-right: 16px; margin-top: 2px;
+    }
+    .step-content { flex: 1; }
+    .badge {
+      display: inline-block; padding: 2px 10px; border-radius: 12px;
+      font-size: 12px; font-weight: 700; margin-right: 4px;
+    }
+    .badge-high { background: #ff4444; color: #fff; }
+    .badge-mid { background: #ff8800; color: #fff; }
+    .badge-low { background: #888; color: #fff; }
+    .badge-info { background: #4488ff; color: #fff; }
+    .toc { background: #fff; border-radius: 12px; padding: 24px 28px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    .toc h3 { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 12px; }
+    .toc a { color: #0f3460; text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    .footer {
+      margin-top: 60px; padding-top: 30px; border-top: 2px solid #e8e8e8;
+      text-align: center; font-size: 0.85rem; color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Spreadsheet 活用ガイド</h1>
+    <div class="sub">花ノ宮あかり様</div>
+  </header>
+
+  <div class="container">
+    <div class="info">
+      調査結果はすべて Google Spreadsheet に自動で反映されます。<br>
+      <strong>毎日 06:00 と 18:00 に更新</strong>されるので、朝と夕方にチェックするのがおすすめです。
+    </div>
+
+    <div class="card" style="text-align: center;">
+      <a href="index.html" style="color: #0f3460; font-weight: 700; font-size: 1.05rem; text-decoration: none;">← システム全体のご利用ガイドに戻る</a>
+    </div>
+
+    <!-- 目次 -->
+    <div class="toc">
+      <h3>もくじ</h3>
+      <ol>
+        <li><a href="#overview">シート一覧と更新タイミング</a></li>
+        <li><a href="#quotable">引用RT候補（最重要シート）</a></li>
+        <li><a href="#actions">毎日のアクション</a></li>
+        <li><a href="#briefing-log">速報ログ</a></li>
+        <li><a href="#weekly">週次レポート</a></li>
+        <li><a href="#accounts">監視アカウント追加</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+      </ol>
+    </div>
+
+    <!-- ========== シート一覧 ========== -->
+    <h2 class="section-title" id="overview">シート一覧と更新タイミング</h2>
+    <div class="card">
+      <table>
+        <tr>
+          <th>シート名</th>
+          <th>内容</th>
+          <th>更新</th>
+        </tr>
+        <tr>
+          <td><strong>表紙・目次</strong></td>
+          <td>各シートの説明（固定）</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><strong>引用RT候補</strong></td>
+          <td>乗れる度が高い投稿ランキング（上位30件）</td>
+          <td>毎日 06:00 / 18:00</td>
+        </tr>
+        <tr>
+          <td><strong>毎日のアクション</strong></td>
+          <td>今日やるべきことリスト</td>
+          <td>毎日 06:00 / 18:00</td>
+        </tr>
+        <tr>
+          <td><strong>速報ログ</strong></td>
+          <td>速報の全文履歴</td>
+          <td>毎日 06:00 / 18:00</td>
+        </tr>
+        <tr>
+          <td><strong>週次レポート</strong></td>
+          <td>1週間のまとめ分析</td>
+          <td>月・木 07:15</td>
+        </tr>
+        <tr>
+          <td><strong>監視アカウント追加</strong></td>
+          <td>あかりさんからの登録リクエスト</td>
+          <td>随時（あかりさんが入力）</td>
+        </tr>
+      </table>
+      <p>すべてのシートは<strong>7日間のローリング保持</strong>です（古いデータは自動で消えます）。</p>
+    </div>
+
+    <!-- ========== 引用RT候補 ========== -->
+    <h2 class="section-title" id="quotable">引用RT候補（最重要シート）</h2>
+
+    <div class="card">
+      <h3>このシートは何？</h3>
+      <p>バズっている投稿の中から「あかりさんが引用RTで乗れそうな投稿」を自動でランキングしたシートです。</p>
+    </div>
+
+    <div class="card">
+      <h3>列の見かた</h3>
+      <table>
+        <tr><th>列</th><th>内容</th><th>見かた</th></tr>
+        <tr>
+          <td><strong>ランク</strong></td>
+          <td>乗れる度順の順位</td>
+          <td>クリックすると<strong>元ポストに直接ジャンプ</strong></td>
+        </tr>
+        <tr>
+          <td><strong>投稿日時</strong></td>
+          <td>元の投稿がされた日時</td>
+          <td>古すぎる投稿は避ける（24時間以内が理想）</td>
+        </tr>
+        <tr>
+          <td><strong>@ユーザー名</strong></td>
+          <td>投稿者</td>
+          <td>クリックするとXのプロフィールへ</td>
+        </tr>
+        <tr>
+          <td><strong>投稿本文</strong></td>
+          <td>元ポストの内容</td>
+          <td>あかりさんが自分を重ねられるかが判断基準</td>
+        </tr>
+        <tr>
+          <td><strong>いいね数</strong></td>
+          <td>元ポストのいいね数</td>
+          <td>1,000以上が引用RTの目安</td>
+        </tr>
+        <tr>
+          <td><strong>乗れる度(%)</strong></td>
+          <td>引用RTの適合スコア</td>
+          <td><strong>高いほどあかりさん向き</strong>（テーマ・バズ度・鮮度の総合）</td>
+        </tr>
+        <tr>
+          <td><strong>元ポストURL</strong></td>
+          <td>「元ポスト →」リンク</td>
+          <td>クリックして直接確認できる</td>
+        </tr>
+        <tr>
+          <td><strong>リプライの雰囲気</strong></td>
+          <td>リプ欄の空気感</td>
+          <td>「好意的」「ツッコミ系」など。炎上系は避ける</td>
+        </tr>
+        <tr>
+          <td><strong>ミーム検出</strong></td>
+          <td>トレンドのフォーマットか</td>
+          <td>「構造ミーム」「元ポスト候補」が出たら注目</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>推奨の使い方</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>ランク列をクリック</strong> → 元ポストをXで確認する</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>「自分が答えになれるか？」</strong>を考える
+          <div class="highlight">
+            <strong>例:</strong><br>
+            元ポスト「巨乳の女って〜しがち」<br>
+            → あかりさんがまさにそれ → 写真付きで引用RT<br><br>
+            元ポスト「エロ漫画あるある」<br>
+            → あかりさんのコスプレ写真で実写化
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>リプライの雰囲気を確認</strong> → 炎上系・政治系は避ける</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>いいね数を確認</strong> → 1,000未満は拡散力が弱いので優先度下げる</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content"><strong>投稿日時を確認</strong> → 24時間以上経っている投稿は旬が過ぎている可能性</div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <strong>やってはいけないこと</strong>
+      <ul style="margin-top: 8px;">
+        <li>ランキングが高いからといって内容を確認せずに引用RTしない</li>
+        <li>元ポストの文脈を無視した引用RTをしない</li>
+        <li>炎上案件やネガティブな投稿には乗らない</li>
+      </ul>
+    </div>
+
+    <!-- ========== 毎日のアクション ========== -->
+    <h2 class="section-title" id="actions">毎日のアクション</h2>
+
+    <div class="card">
+      <h3>このシートは何？</h3>
+      <p>速報から抽出した「今日やるべきこと」を種別ごとにまとめたシートです。</p>
+    </div>
+
+    <div class="card">
+      <h3>種別と優先度</h3>
+      <table>
+        <tr><th>種別</th><th>何をするか</th><th>優先度</th></tr>
+        <tr>
+          <td><span class="badge badge-high">投稿ネタ</span></td>
+          <td>あかりさん発のオリジナル投稿</td>
+          <td>★★★</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-mid">引用RT</span></td>
+          <td>バズ投稿への引用リポスト</td>
+          <td>★★</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-mid">ミーム参加</span></td>
+          <td>トレンドのフォーマットに乗る</td>
+          <td>★★</td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-info">タイミング</span></td>
+          <td>投稿の推奨時間帯</td>
+          <td>情報</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>列の見かた</h3>
+      <table>
+        <tr><th>列</th><th>内容</th></tr>
+        <tr><td><strong>日付・時刻</strong></td><td>速報が生成された日時</td></tr>
+        <tr><td><strong>種別</strong></td><td>投稿ネタ / 引用RT / ミーム参加 / タイミング</td></tr>
+        <tr><td><strong>優先度</strong></td><td>★★★（最優先）〜 ★（低め）/ 情報</td></tr>
+        <tr><td><strong>ネタ</strong></td><td>具体的な投稿内容や引用元（引用RTには元ポストURLつき・クリック可能）</td></tr>
+        <tr><td><strong>写真</strong></td><td>推奨する写真の内容（首から下・後ろ姿・横アングル・手元）</td></tr>
+        <tr><td><strong>理由</strong></td><td>なぜこのアクションを推奨するか</td></tr>
+        <tr><td><strong>投稿先</strong></td><td>X / -</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>推奨の使い方</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>朝（06:00以降）</strong>にシートを開いて今日のアクションを確認</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>優先度順に実行</strong>: ★★★ → ★★ → ★ の順</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>引用RT行</strong>: ネタ列の「→ 元ポスト: URL」をクリックして元投稿を確認</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>写真列を確認</strong>: 推奨されている構図・アングルに合う素材を選ぶ</div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content"><strong>夕方（18:00以降）</strong>: 更新後に新しいアクションを確認</div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>補足:</strong>
+      <ul style="margin-top: 8px;">
+        <li>引用RTの「見送り推奨」が出ている場合 → その時間帯に良い候補がなかった。無理に引用RTせず、オリジナル投稿に集中する</li>
+        <li>ミーム参加は流行り廃りが早いので、見つけたら早めに行動する</li>
+      </ul>
+    </div>
+
+    <!-- ========== 速報ログ ========== -->
+    <h2 class="section-title" id="briefing-log">速報ログ</h2>
+
+    <div class="card">
+      <h3>このシートは何？</h3>
+      <p>速報の全文テキストをそのまま保存しているシートです。</p>
+      <p>基本的には「毎日のアクション」シートで十分です。<strong>詳細が知りたいとき</strong>にこちらを参照してください。</p>
+      <ul>
+        <li>推奨の根拠や分析の詳細が書かれている</li>
+        <li>「なぜこの投稿が推奨されたのか」を深掘りしたいときに読む</li>
+      </ul>
+    </div>
+
+    <!-- ========== 週次レポート ========== -->
+    <h2 class="section-title" id="weekly">週次レポート</h2>
+
+    <div class="card">
+      <h3>このシートは何？</h3>
+      <p>月曜と木曜に自動生成される、<strong>1週間の分析レポート</strong>です。</p>
+    </div>
+
+    <div class="card">
+      <h3>含まれるセクション</h3>
+      <table>
+        <tr><th>セクション</th><th>内容</th></tr>
+        <tr>
+          <td><strong>トレンドまとめ</strong></td>
+          <td>今週バズった投稿のパターン・傾向</td>
+        </tr>
+        <tr>
+          <td><strong>ミーム分析</strong></td>
+          <td>検出されたトレンドフォーマットと乗るべきかの判断</td>
+        </tr>
+        <tr>
+          <td><strong>注目アカウント</strong></td>
+          <td>参考になるアカウントの活動分析</td>
+        </tr>
+        <tr>
+          <td><strong>発信ネタ候補</strong></td>
+          <td>あかりさん発のオリジナル投稿ネタ提案</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>推奨の使い方</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content"><strong>月曜の朝</strong>: 週初めに先週の振り返りとして確認</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content"><strong>ミーム分析を重視</strong>: 「乗るべき → YES」のミームがあれば、具体的な乗り方が書かれている</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content"><strong>発信ネタ候補</strong>: YouTube やニコニコチャンネルプラスの告知と組み合わせて使える</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content"><strong>注目アカウント</strong>: 同ジャンルの成功パターンを参考にする</div>
+      </div>
+    </div>
+
+    <!-- ========== 監視アカウント追加 ========== -->
+    <h2 class="section-title" id="accounts">監視アカウント追加</h2>
+
+    <div class="card">
+      <h3>このシートは何？</h3>
+      <p>「この人の投稿も調査に含めてほしい」と思ったアカウントを登録するシートです。</p>
+    </div>
+
+    <div class="card">
+      <h3>使い方</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">A列に <strong>@username</strong>（@つき）を入力</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">次回のバッチ実行時（06:00 or 18:00）に自動で監視対象に追加される</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">追加後は特に操作不要</div>
+      </div>
+    </div>
+
+    <div class="highlight">
+      <strong>追加すべきアカウントの例:</strong>
+      <ul style="margin-top: 8px;">
+        <li>同ジャンル（セクシー系・ASMR系）の配信者</li>
+        <li>バズ投稿をよく出すアカウント</li>
+        <li>あかりさんが引用RTしたい投稿をよく出す人</li>
+      </ul>
+    </div>
+
+    <!-- ========== FAQ ========== -->
+    <h2 class="section-title" id="faq">よくある質問</h2>
+
+    <div class="card">
+      <h3>Q: シートのデータが古い・更新されていない</h3>
+      <p>データは毎日 06:00 と 18:00 に自動更新されます。バッチ処理のため数分〜数十分の遅れがある場合があります。</p>
+    </div>
+
+    <div class="card">
+      <h3>Q: 引用RT候補に良い投稿がない</h3>
+      <p>全ての時間帯にバズ投稿があるわけではありません。「毎日のアクション」で「見送り推奨」が出ている場合は、無理に引用RTせず、<strong>オリジナル投稿に集中する</strong>のが良いです。</p>
+    </div>
+
+    <div class="card">
+      <h3>Q: 乗れる度が高いのに内容が微妙</h3>
+      <p>乗れる度はテーマ適合度・バズ度・鮮度の自動計算です。<strong>最終判断は必ずあかりさん自身が元ポストを確認して行ってください</strong>。スコアはあくまで「候補の絞り込み」のためのものです。</p>
+    </div>
+
+    <div class="card">
+      <h3>Q: ミーム検出って何？</h3>
+      <p>複数のアカウントが同じフォーマットで投稿しているパターンを自動で検出します。例えば「〜と付き合うメリット」のような形式です。ミームは流行り廃りが早いので、検出されたら早めに参加を検討してください。</p>
+    </div>
+
+    <div class="card">
+      <h3>Q: 監視アカウントを追加したのに反映されない</h3>
+      <p>次回のバッチ実行（06:00 or 18:00）で自動的に反映されます。即座には反映されません。</p>
+    </div>
+
+    <div class="footer">
+      X活動支援システム - Spreadsheet 活用ガイド
+    </div>
+  </div>
+</body>
+</html>
