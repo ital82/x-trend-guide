@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X活動支援システム - ご利用ガイド｜花ノ宮あかり様</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      background: #f7f5f2;
+      color: #2d2d2d;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 48px 32px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; }
+    header .sub { margin-top: 10px; font-size: 0.85rem; opacity: 0.75; letter-spacing: 0.08em; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+    .section-title {
+      font-size: 1.3rem; font-weight: 700; color: #1a1a2e;
+      margin: 48px 0 20px; padding-bottom: 10px;
+      border-bottom: 3px solid #1a1a2e;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .card h3 { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 12px; }
+    .card p { margin-bottom: 12px; }
+    table {
+      width: 100%; border-collapse: collapse; margin: 16px 0;
+      background: #fff; border-radius: 8px; overflow: hidden;
+    }
+    th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #e8e8e8; }
+    th { background: #f5f5f5; font-weight: 700; color: #1a1a2e; }
+    .highlight { background: #fff8dc; padding: 16px; border-left: 4px solid #ffa500; margin: 16px 0; }
+    .warning { background: #fff0f0; padding: 16px; border-left: 4px solid #ff4444; margin: 16px 0; }
+    .info { background: #f0f8ff; padding: 16px; border-left: 4px solid #4488ff; margin: 16px 0; }
+    code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+    ul, ol { margin-left: 24px; margin-bottom: 12px; }
+    li { margin-bottom: 8px; }
+    .footer {
+      margin-top: 60px; padding-top: 30px; border-top: 2px solid #e8e8e8;
+      text-align: center; font-size: 0.85rem; color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>X活動支援システム - ご利用ガイド</h1>
+    <div class="sub">花ノ宮あかり様</div>
+  </header>
+
+  <div class="container">
+    <div class="info">
+      このシステムは、あかりさんのX活動を支援するために、話題の投稿を自動で集めて整理します。<br>
+      <strong>あかりさんのPCに何もインストールする必要はありません</strong>。開発者側で全て自動実行されます。
+    </div>
+
+    <h2 class="section-title">動いている仕組み</h2>
+
+    <div class="card">
+      <h3>誰が何をするか</h3>
+      <table>
+        <tr>
+          <th>誰が</th>
+          <th>何をするか</th>
+        </tr>
+        <tr>
+          <td><strong>自動（開発者PC）</strong></td>
+          <td>毎日朝6時・夕方18時に投稿を収集・整理</td>
+        </tr>
+        <tr>
+          <td><strong>自動（月・木 朝7時15分）</strong></td>
+          <td>直近の傾向を分析して投稿文案を生成</td>
+        </tr>
+        <tr>
+          <td><strong>あかりさん</strong></td>
+          <td>Google Spreadsheetを開いて結果を確認し「使う・使わない」を判断</td>
+        </tr>
+      </table>
+      <p>あかりさんに求めることは <strong>「まとめを見る」だけ</strong> です。収集・整理・文案生成はすべて自動で動きます。</p>
+    </div>
+
+    <div class="card">
+      <h3>自動実行スケジュール</h3>
+      <table>
+        <tr>
+          <th>時間</th>
+          <th>内容</th>
+        </tr>
+        <tr>
+          <td><strong>毎日 6:00</strong></td>
+          <td>前日夜〜深夜の投稿を収集 → Spreadsheet更新</td>
+        </tr>
+        <tr>
+          <td><strong>毎日 18:00</strong></td>
+          <td>昼間の投稿を収集 → Spreadsheet更新</td>
+        </tr>
+        <tr>
+          <td><strong>月・木 7:15</strong></td>
+          <td>週次レポート生成（詳細分析）</td>
+        </tr>
+      </table>
+      <p><strong>全て自動で実行されます。あかりさんが何かする必要はありません。</strong></p>
+    </div>
+
+    <h2 class="section-title">Google Spreadsheetの見方</h2>
+
+    <div class="card">
+      <h3>シート「引用RT候補」</h3>
+      <p>毎日の投稿ネタ候補が、反応が良さそうな順に30件並んでいます。<br>
+      同じ人の投稿ばかりにならないよう、同一著者の2件目以降は順位が下がる仕組みです。</p>
+      <p><strong>使い方:</strong></p>
+      <ol>
+        <li>上位の投稿を見て、自分の写真を添付して引用RTできそうか判断</li>
+        <li>「ランク番号」または「元ポスト →」をクリックすると、Xの投稿ページが開く</li>
+        <li>良さそうなら、自分の写真を添付して引用リポスト</li>
+      </ol>
+      <p><strong>列の見方:</strong></p>
+      <table>
+        <tr><th>列</th><th>内容</th></tr>
+        <tr><td>ランク</td><td>クリックするとX（Twitter）の元投稿に飛びます</td></tr>
+        <tr><td>投稿日時</td><td>投稿された日時（新しいほど良い）</td></tr>
+        <tr><td>ユーザー名</td><td>元投稿した人</td></tr>
+        <tr><td>本文</td><td>投稿の内容（これに乗っかれるか判断）</td></tr>
+        <tr><td>いいね/RT/返信</td><td>エンゲージメント数（多いほど話題）</td></tr>
+        <tr><td>乗れる度</td><td>システムが計算した「あかりさんが乗れる度」（0〜100%）</td></tr>
+        <tr><td>元ポスト</td><td>クリックするとXの元投稿に飛びます</td></tr>
+        <tr><td>収集元</td><td>どのキーワードで見つけたか</td></tr>
+        <tr><td>リプライの雰囲気</td><td>元投稿のリプ欄の雰囲気（「楽しい」「共感」など）</td></tr>
+        <tr><td>ミーム</td><td>流行フォーマットに該当する場合に表示</td></tr>
+      </table>
+      <div class="highlight">
+        <strong>実績例:</strong><br>
+        元ポスト: 「マジで謎なんだけど乳でけえ女って、なんで乳強調する服着がちなんや」<br>
+        → あかりさんが胸を強調したコスプレ画像を添付して引用リポスト<br>
+        <strong>結果: コメント1,096 / RT3,195 / いいね32,000 / ブックマーク4,381</strong>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>シート「毎日のアクション」</h3>
+      <p>その日にやると良いことを、優先度別に整理して表示します。<br>
+      朝6時と夕方18時に自動で更新されます。</p>
+      <table>
+        <tr><th>列</th><th>内容</th></tr>
+        <tr><td>種別</td><td>「投稿ネタ」「引用RT」「ミーム参加」など</td></tr>
+        <tr><td>優先度</td><td>★★★（最優先）〜★（参考情報）</td></tr>
+        <tr><td>ネタ</td><td>具体的な投稿の内容やアイデア</td></tr>
+        <tr><td>写真</td><td>どんな写真を添えると良いか</td></tr>
+        <tr><td>理由</td><td>なぜこのアクションがおすすめなのか</td></tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>シート「速報ログ」</h3>
+      <p>毎日の朝6時と夕方18時に生成される速報の全文が、過去7日分まで残っています。<br>
+      「毎日のアクション」の元になった詳しい分析内容です。</p>
+    </div>
+
+    <div class="card">
+      <h3>シート「週次レポート」</h3>
+      <p>月曜と木曜の朝7時15分に自動で生成される、直近数日の詳細分析です。<br>
+      トレンドまとめ・ミーム分析・参考事例・投稿ネタ候補・投稿文案がセクション別に並びます。</p>
+    </div>
+
+    <div class="card">
+      <h3>シート「監視アカウント追加」</h3>
+      <p>「このアカウントの投稿を毎日チェックしてほしい」と思ったら、ここに追加できます。</p>
+      <p><strong>使い方:</strong></p>
+      <ol>
+        <li>A列に <code>@ユーザー名</code> を入力（例: <code>@akari_ASMR</code>）</li>
+        <li>入力すると、自動的に「pending（保留中）」として登録される</li>
+        <li>次回の自動実行で、システムがそのアカウントの投稿を収集し始める</li>
+      </ol>
+      <p><strong>ステータスの意味:</strong></p>
+      <ul>
+        <li><code>pending</code>: システムが確認中</li>
+        <li><code>active</code>: 監視中（毎日投稿を収集している）</li>
+        <li><code>excluded</code>: 監視対象外</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">システムが探している投稿</h2>
+
+    <div class="card">
+      <p>システムは3つの方法で投稿を探しています。</p>
+    </div>
+
+    <div class="card">
+      <h3>1. 固定キーワード検索（基本テーマ）</h3>
+      <p>あかりさんの活動に合った投稿を、以下のテーマで毎日検索します。<br>
+      キーワードは、あかりさんの過去のバズ実績を分析して選定しています。</p>
+      <table>
+        <tr><th>テーマ</th><th>検索例</th><th>乗れる理由</th></tr>
+        <tr>
+          <td><strong>巨乳・体型系</strong></td>
+          <td>「巨乳 あるある」「おっぱい あるある」「な女って なんで」「胸 でかい 女」</td>
+          <td>自分が「実例」になれる</td>
+        </tr>
+        <tr>
+          <td><strong>セクシー系</strong></td>
+          <td>「裏垢女子 えっち」「コスプレ えっち」「ASMR えっち」「セクシー 女子」</td>
+          <td>自分の活動と直結</td>
+        </tr>
+        <tr>
+          <td><strong>海外トレンド</strong></td>
+          <td>「big boobs fact」「busty girl problems」「cosplay sexy viral」</td>
+          <td>翻訳ミームの実績あり</td>
+        </tr>
+      </table>
+
+      <p><strong>キーワード選定の根拠（あかりさんのバズ実績）:</strong></p>
+
+      <div class="highlight">
+        <strong>引用RT実績（いいね32,000）</strong><br>
+        元ポスト: 「マジで謎なんだけど乳でけえ女って、なんで乳強調する服着がちなんや」<br>
+        → あかりさんが胸を強調したコスプレ画像で引用RT → いいね32,000<br>
+        → この実績から「胸 でかい 女」「乳 でかい 女」「な女って なんで」を選定
+      </div>
+
+      <div class="highlight">
+        <strong>自発投稿実績（いいね2,742）</strong><br>
+        「男性が好む体型してますか...？」＋セクシー自撮り → いいね2,742<br>
+        → 体型×問いかけ形式がバズるパターンと判断し「巨乳 あるある」「おっぱい あるある」を選定
+      </div>
+
+      <div class="highlight">
+        <strong>Fantia告知実績（いいね419）</strong><br>
+        「F＠ntia再販ALL555円くじ 大人気えっっな耳ﾅめ動画＆音声等が当たる企画」<br>
+        → セクシー・エロ系コンテンツの訴求力を確認し「コスプレ えっち」「ASMR えっち」を選定
+      </div>
+
+      <p>直近の収集実績でも、これらのキーワードで以下のような投稿が見つかっています:</p>
+      <ul>
+        <li>「な女って なんで」→ いいね46,000の投稿を収集</li>
+        <li>「おっぱい あるある」→ いいね17,000、11,000級の投稿を複数収集</li>
+        <li>「巨乳 あるある」→ いいね11,000、7,993級の投稿を複数収集</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2. トレンド自動検出</h3>
+      <p>X公式の「急上昇トレンド」を毎日チェックし、一過性のミームを自動で見つけます。<br>
+      <strong>例:</strong> 「ねぇ@grok」「〜私と付き合うメリット〜」など</p>
+    </div>
+
+    <div class="card">
+      <h3>3. ミーム自動検出</h3>
+      <p>複数のアカウントで同じフォーマットが使われ始めたら「流行中」と判断し、自動で検索キーワードに追加します。<br>
+      <strong>例:</strong> 「私と付き合うメリット」が16アカウントで検出 → 次回から自動収集</p>
+    </div>
+
+    <div class="info">
+      <strong>つまり:</strong> 固定キーワードだけでなく、システムが自動で「今流行っているネタ」を見つけて追いかけます。
+    </div>
+
+    <h2 class="section-title">システムが除外している投稿</h2>
+
+    <div class="card">
+      <p>以下のような投稿は、自動で除外されます（引用RT候補に出てきません）:</p>
+      <ul>
+        <li>炎上・謝罪・訴訟関連</li>
+        <li>キャンペーン・懸賞（RTといいねを水増ししているだけ）</li>
+        <li>自己PR・告知（「DMで見せます」「♡でお迎え」「fantia.jp」等）</li>
+        <li>広告・ダウンロード販売の宣伝</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">システムの仕様概要（開発者向け・技術詳細）</h2>
+
+    <div class="info">
+      このセクションでは、システムがどのような観点でデータを取得し、分析しているかを説明します。
+    </div>
+
+    <div class="card">
+      <h3>データ収集の観点</h3>
+      <p>システムは以下の3つの観点でデータを収集しています。</p>
+
+      <h4>1. エンゲージメント規模</h4>
+      <ul>
+        <li><strong>いいね数</strong>: 最低300以上の投稿を収集</li>
+        <li><strong>リツイート数</strong>: RT×3倍の重みで評価（拡散力の指標）</li>
+        <li><strong>返信数</strong>: 返信×10倍の重みで評価（会話誘発力 = Xアルゴリズムで最重要）</li>
+        <li><strong>計算式</strong>: <code>engagement = likes + retweets × 3 + replies × 10</code></li>
+      </ul>
+      <p><strong>理由:</strong> Xのアルゴリズムは返信を最も高く評価します（公開ソース分析より）。返信が多い投稿 = 会話が生まれる = 引用RTも機能しやすい。</p>
+
+      <h4>2. テーマ適合度</h4>
+      <p>以下のキーワードが含まれるほど高評価:</p>
+      <ul>
+        <li><strong>ASMR関連</strong>: ASMR、音声、耳かき、囁き</li>
+        <li><strong>体型関連</strong>: 巨乳、おっぱい、胸、Hカップ、Gカップ、爆乳</li>
+        <li><strong>セクシー関連</strong>: セクシー、えっち、エロ、グラビア、裏垢、裏アカ、コスプレ</li>
+        <li><strong>バズりやすい構文</strong>: しがち、あるある、なんで、な女、意味わからん</li>
+      </ul>
+      <p><strong>重みづけ:</strong> ASMR:セクシー・エロ = 3:7（あかりさんの活動方針に合わせて調整済み）</p>
+
+      <h4>3. ミーム特性</h4>
+      <ul>
+        <li><strong>構造ミーム</strong>: 「私と〜」「〜のメリット」など、複数アカウントで同じ書き出しが使われている</li>
+        <li><strong>RT比率</strong>: RT数 / いいね数が高い = 拡散されやすい投稿</li>
+        <li><strong>自動検出</strong>: 過去に「流行フォーマット」として検出された投稿</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>スコアリングの仕組み</h3>
+      <p>収集した投稿を「あかりさんが乗れる度（quotability_score）」でランク付けします。</p>
+
+      <h4>配点（2026-05-13改善版）</h4>
+      <div class="highlight">
+        <code>quotability_score =<br>
+        &nbsp;&nbsp;テーマ適合度 × 0.25 +<br>
+        &nbsp;&nbsp;ミーム特性 × 0.20 +<br>
+        &nbsp;&nbsp;鮮度 × 0.15 +<br>
+        &nbsp;&nbsp;エンゲージメント × 0.40</code>
+      </div>
+
+      <h4>鮮度の計算</h4>
+      <p>投稿後12時間以内が最も高く、時間とともに指数減衰します。</p>
+      <ul>
+        <li>投稿後6時間: 約71%</li>
+        <li>投稿後12時間: 約47%</li>
+        <li>投稿後24時間: 約22%</li>
+      </ul>
+      <p><strong>理由:</strong> Xは初速が命。新しい投稿に乗る方が反応が良い。</p>
+
+      <h4>同一著者ペナルティ（2026-05-19追加）</h4>
+      <p>同じ人の投稿が2件目以降は順位が下がります。</p>
+      <ul>
+        <li>1件目: スコアそのまま</li>
+        <li>2件目: スコア × 0.7</li>
+        <li>3件目: スコア × 0.49（0.7²）</li>
+      </ul>
+      <p><strong>理由:</strong> Xのアルゴリズムは同一著者の投稿を連続表示しないため、同じ人ばかり引用RTしても効果が薄い。</p>
+
+      <h4>低エンゲージメントの救済</h4>
+      <p>いいね300未満でも、テーマ適合度が高ければ上位に表示します。<br>
+      <strong>例:</strong> 「おっぱいって揉むと大きくなるの？」（いいね53）→ テーマ適合で上位表示</p>
+      <p><strong>理由:</strong> 「あかりさんが乗れる投稿」と「万人受けする投稿」は必ずしも一致しない。ニッチでも乗れる投稿を優先。</p>
+    </div>
+
+    <div class="card">
+      <h3>日次速報の生成（毎日06:00 / 18:00）</h3>
+      <p>収集バッチ完了後、Claude API（Haiku）で速報を自動生成します。</p>
+
+      <h4>速報の5つの要素</h4>
+      <ol>
+        <li><strong>引用RT候補</strong>: quotability上位10件を分析</li>
+        <li><strong>検出ミーム</strong>: 今日新しく見つかった流行フォーマット</li>
+        <li><strong>元ポスト</strong>: ミームの起源となった投稿</li>
+        <li><strong>異常値</strong>: いいね数が突出した投稿</li>
+        <li><strong>リプライ感情</strong>: 元投稿のリプ欄の雰囲気分析</li>
+      </ol>
+
+      <h4>プロンプトの方針</h4>
+      <ul>
+        <li>「あかりさんの写真や発言で乗っかれるか」が唯一の基準</li>
+        <li>写真提案は「顔出しなし」前提（首から下・後ろ姿・横アングル・手元）</li>
+        <li>Xアルゴリズムの知見を埋め込み（同一著者減衰、テーマ一貫性、dwell time）</li>
+      </ul>
+
+      <h4>出力先</h4>
+      <ul>
+        <li><strong>毎日のアクション</strong>シート: 種別・優先度・ネタ・写真・理由の表形式</li>
+        <li><strong>速報ログ</strong>シート: 全文（過去7日分保持）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>週次レポートの生成（月・木 07:15）</h3>
+      <p>Claude API（Sonnet 4）で直近数日の詳細分析を生成します。</p>
+
+      <h4>レポートの7セクション</h4>
+      <ol>
+        <li><strong>直近のトレンドまとめ</strong>: この期間で話題になったテーマ</li>
+        <li><strong>ミーム・フォーマット分析</strong>: 監視アカウントで流行している書き出しや構文</li>
+        <li><strong>注目アカウント・参考事例</strong>: 似た活動をしているアカウントの成功例</li>
+        <li><strong>発信ネタ候補</strong>: あかりさんが起点になる投稿の提案</li>
+        <li><strong>あかりさんへの提案</strong>: 具体的なアクション提案</li>
+        <li><strong>投稿文案ドラフト</strong>: 1〜2本の投稿案</li>
+        <li><strong>次回までの注目ポイント</strong>: 週末に注目すべきトピック</li>
+      </ol>
+
+      <h4>プロンプトのコンテキスト</h4>
+      <ul>
+        <li><code>context/about-me.md</code>: あかりさんのプロフィール・口調・コンテンツ特徴</li>
+        <li><code>context/strategy.md</code>: X戦略・投稿パターン・アルゴリズム対応</li>
+        <li>過去7日分の投稿データ・エンゲージメント統計</li>
+      </ul>
+
+      <h4>出力先</h4>
+      <ul>
+        <li><strong>週次レポート</strong>シート: セクション別に整理された表形式（直近3回分保持）</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>監視アカウントの自動選定</h3>
+      <p>関連性の高いアカウントを自動で見つけて監視リストに追加します。</p>
+
+      <h4>発見方法</h4>
+      <ol>
+        <li><strong>X「おすすめのアカウント」</strong>: @akari_ASMRのプロフィールページから取得（週次）</li>
+        <li><strong>バズ投稿の著者</strong>: キーワード検索で見つかった投稿の投稿者を候補として登録</li>
+      </ol>
+
+      <h4>関連度スコア</h4>
+      <div class="highlight">
+        <code>関連度スコア =<br>
+        &nbsp;&nbsp;フォロワースコア（log10(followers) / 5.0 × 0.4）+<br>
+        &nbsp;&nbsp;バイオスコア（キーワード一致数 × 0.12）</code>
+      </div>
+      <p><strong>バイオキーワード:</strong> ASMR、耳かき、囁き、セクシー、えっち、エロ、グラビア、裏垢、巨乳、おっぱい、コスプレ、配信、VTuber 等</p>
+
+      <h4>自動昇格条件</h4>
+      <ul>
+        <li>発見元: X「おすすめのアカウント」経由</li>
+        <li>関連度スコア: 0.5以上</li>
+        <li>フォロワー数: 1,000以上</li>
+        <li>上限: 1回の実行で最大10件</li>
+      </ul>
+      <p><strong>手動確認が必要:</strong> バズ投稿経由・ハッシュタグ経由のアカウントは手動確認推奨（一過性の可能性あり）</p>
+    </div>
+
+    <div class="card">
+      <h3>除外ルール</h3>
+      <p>以下の投稿は自動で除外されます。</p>
+
+      <h4>除外キーワード</h4>
+      <ul>
+        <li><strong>炎上・アカウント問題</strong>: 炎上、謝罪、訴訟、垢BAN、凍結</li>
+        <li><strong>キャンペーン・懸賞</strong>: プレゼント企画、当選、抽選で、応募方法、応募締切、ギフトカード、[AD]</li>
+        <li><strong>自己PR・DM誘導</strong>: ♡でお迎え、♡で送る、DMで見せ、dmで見せ、DMでお見せ、fantia.jp、fanbox</li>
+        <li><strong>ダウンロード販売</strong>: 通販開始、DLsite</li>
+      </ul>
+
+      <h4>センシティブ判定リスク</h4>
+      <ul>
+        <li>下着が直接見える・乳輪が示唆される構図 → Sensitive判定リスク高</li>
+        <li>Sensitive判定されるとFor Youから完全除外されるため、安全圏の構図を推奨</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">ヒアリング（あかりさんに教えてほしいこと）</h2>
+
+    <div class="info">
+      あかりさんの活動を正しく理解するために、以下の項目を教えてください。<br>
+      「わからない」「特にない」でもOKです。思いつくものだけでも大丈夫です。
+    </div>
+
+    <div class="card">
+      <h3>1. キャラクター・口調について</h3>
+
+      <p><strong>Q1-1. 配信中の一人称は？ Xの投稿と使い分けていますか？</strong></p>
+      <p>現状、Xの投稿では一人称を省略することが多いと分析しています。</p>
+      <div class="highlight">
+        記入例:<br>
+        ・「配信では"わたし"が多い。Xでは特に意識してない」<br>
+        ・「配信もXも一人称なし」<br>
+        ・「配信では"あかり"って言うこともある」
+      </div>
+
+      <p><strong>Q1-2. キャラクターの推定は合っていますか？ 違う点があれば教えてください</strong></p>
+      <p>現在、以下のように推定しています:</p>
+      <ul>
+        <li>ファンを「彼氏くん」と呼ぶ距離感の近いキャラクター</li>
+        <li>甘え・おねだり系の語りかけが基本トーン</li>
+        <li>弱さ・素の感情を見せる面もある</li>
+        <li>セクシーさは直接的な言葉ではなく、写真+短い問いかけで表現</li>
+      </ul>
+      <div class="highlight">
+        記入例:<br>
+        ・「だいたい合ってる」<br>
+        ・「甘えというよりは小悪魔っぽいかも」<br>
+        ・「最近はもっとエロ寄りにしてる」
+      </div>
+
+      <p><strong>Q1-3. 他に意識して使っているフレーズや口癖はありますか？</strong></p>
+      <p>把握済み: 「おはよう！」「彼氏くん」「〇〇ありがとう！」「えっっな」「えちち」「...？」</p>
+      <div class="highlight">
+        記入例:<br>
+        ・「"ね？" をよく語尾につける」<br>
+        ・「"〇〇してくれる？" って聞く形が多い」<br>
+        ・「特にない、自然に書いてる」
+      </div>
+
+      <p><strong>Q1-4. 絶対に使わない言い回しや、避けたい表現はありますか？</strong></p>
+      <div class="highlight">
+        記入例:<br>
+        ・「"俺" とか男っぽい言葉は使わない」<br>
+        ・「下品すぎる直接的な言葉はNG」<br>
+        ・「他の配信者の名前は出さない」
+      </div>
+
+      <p><strong>Q1-5. 絵文字は意図的に控えていますか？</strong></p>
+      <p>Xの投稿を分析すると、22投稿中3投稿のみ使用。♡が最多でした。</p>
+      <div class="highlight">
+        記入例:<br>
+        ・「意図的に少なくしてる。文章で伝えたい」<br>
+        ・「特に意識してない、ただ面倒なだけ」<br>
+        ・「♡と💕くらいは使う」
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>2. コンテンツ・強みについて</h3>
+
+      <p><strong>Q2-1. 得意なASMRの種類を教えてください</strong></p>
+      <p>「耳舐め系」「コスプレ系ASMR」の言及は見つけています。他にもあれば教えてください。</p>
+      <div class="highlight">
+        記入例:<br>
+        ・「耳舐めがメイン。あとは囁き系」<br>
+        ・「シチュエーションASMRもやってる（彼女が〜系）」<br>
+        ・「最近はセクシー系ASMRに寄せてる」
+      </div>
+
+      <p><strong>Q2-2. 他の配信者と比べて「ここが自分の強み」と思うところはありますか？</strong></p>
+      <div class="highlight">
+        記入例:<br>
+        ・「声質が特徴的と言われる」<br>
+        ・「ファンとの距離感の近さ」<br>
+        ・「体型を活かしたセクシー路線」<br>
+        ・「特に考えたことない」
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>3. ターゲット（ファン層）について</h3>
+
+      <p><strong>Q3-1. ファンの年齢層はどのくらいだと思いますか？</strong></p>
+      <p>システムでは20〜35歳の成人男性と推定しています。</p>
+      <div class="highlight">
+        記入例:<br>
+        ・「20代後半〜30代が多い印象」<br>
+        ・「意外と40代もいる」<br>
+        ・「よくわからない」
+      </div>
+
+      <p><strong>Q3-2. ファンの職業や生活スタイルのイメージはありますか？</strong></p>
+      <div class="highlight">
+        記入例:<br>
+        ・「会社員が多そう。夜に見てくれてる人が多い」<br>
+        ・「学生もいるけど、課金してくれるのは社会人」<br>
+        ・「わからない」
+      </div>
+
+      <p><strong>Q3-3. ファンが抱えている悩みやニーズは何だと思いますか？</strong></p>
+      <div class="highlight">
+        記入例:<br>
+        ・「寂しさを埋めたい人が多いと思う」<br>
+        ・「彼女がいない人が癒しを求めてる」<br>
+        ・「日常のストレスを忘れたい」
+      </div>
+
+      <p><strong>Q3-4. ファンが求めているもの（理想）は何だと思いますか？</strong></p>
+      <div class="highlight">
+        記入例:<br>
+        ・「疑似恋愛感覚」<br>
+        ・「自分だけの特別感」<br>
+        ・「エロいコンテンツ」
+      </div>
+
+      <p><strong>Q3-5. ファンが特に反応するキーワードやトピックはありますか？</strong></p>
+      <div class="highlight">
+        記入例:<br>
+        ・「"彼氏くん" って呼ぶとリプが増える」<br>
+        ・「胸の話題は確実にバズる」<br>
+        ・「新作告知より日常の呟きの方が反応いい」
+      </div>
+
+      <p><strong>Q3-6. 「この投稿は反応が良かった」と実感しているパターンはありますか？</strong></p>
+      <p>システム分析では「自撮り+短い問いかけ」が最も反応が良いと出ています。</p>
+      <div class="highlight">
+        記入例:<br>
+        ・「写真+質問系が一番伸びる」<br>
+        ・「引用RTした時が一番いいねつく」<br>
+        ・「意外と普通の呟きが伸びることもある」
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>4. 投稿の運営方針について</h3>
+
+      <p><strong>Q4-1. 理想の投稿頻度はありますか？</strong></p>
+      <p>現在の実績は1日平均2.2件（0〜7件/日でムラあり）です。</p>
+      <div class="highlight">
+        記入例:<br>
+        ・「毎日2〜3件は投稿したい」<br>
+        ・「多い日は5件くらい。少ない日は0でもいい」<br>
+        ・「特に決めてない」
+      </div>
+
+      <p><strong>Q4-2. 投稿する時間帯は意識していますか？</strong></p>
+      <p>分析では、朝7〜8時と夜20〜22時の2つのピークがあります。</p>
+      <div class="highlight">
+        記入例:<br>
+        ・「朝の"おはよう"は意識して出してる。夜は自然にそうなる」<br>
+        ・「特に意識してない、起きたら投稿する感じ」<br>
+        ・「20時台が一番見てもらえる気がする」
+      </div>
+
+      <p><strong>Q4-3. 投稿で一番大事にしているテーマは何ですか？</strong></p>
+      <div class="highlight">
+        記入例:<br>
+        ・「セクシーさ。それが一番反応いいから」<br>
+        ・「ファンとの距離感。"彼氏くん"って感じ」<br>
+        ・「告知をちゃんとすること」<br>
+        ・「あんまり考えてない」
+      </div>
+    </div>
+
+    <h2 class="section-title">Q&A</h2>
+
+    <div class="card">
+      <h3>Q1. どうやってネタを探しているの？</h3>
+      <p><strong>A:</strong> Xで以下の方法で投稿を探しています:</p>
+      <ol>
+        <li>あかりさんに関連するキーワード（「巨乳」「おっぱい」「ASMR」等）で検索</li>
+        <li>似た活動をしているアカウントの投稿を巡回</li>
+        <li>話題になっている構文（ミーム）を自動検出</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>Q2. 個人情報は大丈夫？</h3>
+      <p><strong>A:</strong> このシステムは<strong>読み取り専用</strong>です。</p>
+      <ul>
+        <li>あかりさんのアカウントで投稿することはありません</li>
+        <li>フォローやいいねもしません</li>
+        <li>開発者の調査用アカウントで情報を集めているだけです</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Q3. 毎日チェックしないとダメ？</h3>
+      <p><strong>A:</strong> 毎日でなくても大丈夫です。Spreadsheetには過去7日分のデータが残っています。<br>
+      ただし、<strong>新しい投稿ほど引用RTした時の反応が良い</strong>ので、できれば毎日見ることをお勧めします。</p>
+    </div>
+
+    <h2 class="section-title">システムが絶対にやらないこと</h2>
+
+    <div class="warning">
+      <p>安全のため、以下のことは絶対にしない設計になっています:</p>
+      <ul>
+        <li>❌ Xへの投稿（文案は生成するが、投稿は必ずあかりさんが行う）</li>
+        <li>❌ フォロワーを自動で増やす</li>
+        <li>❌ DMを自動送信する</li>
+        <li>❌ いいねやRTを自動で行う</li>
+      </ul>
+      <p><strong>最終確認・投稿は必ずあかりさんが行います。自動投稿は絶対にしません。</strong></p>
+    </div>
+
+    <h2 class="section-title">最新の品質改善</h2>
+
+    <div class="card">
+      <h3>2026-05-10</h3>
+      <ol>
+        <li><strong>検索キーワードの拡充:</strong> 6件→11件に増やし、収集量を4.3%→25%に向上</li>
+        <li><strong>スコアの精度向上:</strong> いいね数が逆転する問題を解消</li>
+        <li><strong>自己PR・広告の除外強化:</strong> 「♡でお迎え」「DMで見せ」等を自動除外</li>
+        <li><strong>低いいねでも良い投稿を救う:</strong> いいね数は少ないがあかりさんが乗れる投稿を上位に表示</li>
+        <li><strong>ミーム自動検出の精度向上:</strong> テーマ無関係なバズクエリを除外</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>2026-05-13</h3>
+      <ol start="6">
+        <li><strong>高バズ投稿の順位改善:</strong> いいね数万件の投稿がきちんと上位に来るよう調整</li>
+        <li><strong>速報の品質改善:</strong> 「乗れるかどうか」を基準に絞り込むように変更</li>
+        <li><strong>速報の回数調整:</strong> 1日4回→2回（朝・夕のみ）に集約</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>2026-05-19</h3>
+      <ol start="9">
+        <li><strong>同一著者ばかり並ぶ問題の解消:</strong> 同じ人の投稿が2件目以降は順位が下がるよう調整</li>
+        <li><strong>写真提案の改善:</strong> 顔出しなし前提で、体のアングル・衣装・構図で提案するよう変更</li>
+        <li><strong>Xアルゴリズム分析に基づく改善:</strong> 公開されたXのアルゴリズムを分析し、投稿戦略の精度を向上</li>
+      </ol>
+    </div>
+
+    <div class="footer">
+      <p>最終更新: 2026-05-19 | バージョン: 1.2</p>
+      <p>今後、仕様変更があれば、このファイルを更新します。</p>
+    </div>
+  </div>
+</body>
+</html>
