@@ -356,6 +356,55 @@
     </div>
 
     <div class="card">
+      <h3>分析の精度を決めるもの: コンテキストファイル</h3>
+      <p>日次速報・週次レポートでは、AIに「あかりさんはどういう人で、どんな投稿をすべきか」を伝えるための<strong>コンテキストファイル</strong>をプロンプトに注入しています。</p>
+      <p><strong>つまり、このファイルの内容次第で分析の内容・精度が大幅に変わります。</strong></p>
+
+      <h4>3つのコンテキストファイル</h4>
+      <table>
+        <tr><th>ファイル</th><th>役割</th><th>含まれる内容</th></tr>
+        <tr>
+          <td><strong>about-me.md</strong><br>(Who)</td>
+          <td>あかりさん自身の情報</td>
+          <td>プロフィール・キャラクター特徴・活動プラットフォーム・文体・口調</td>
+        </tr>
+        <tr>
+          <td><strong>target.md</strong><br>(To Whom)</td>
+          <td>ターゲット像</td>
+          <td>ターゲットの属性・反応パターン・刺さるフレーズ</td>
+        </tr>
+        <tr>
+          <td><strong>strategy.md</strong><br>(How)</td>
+          <td>運営戦略</td>
+          <td>投稿パターン・誘導先・リスク管理・Xアルゴリズム対策</td>
+        </tr>
+      </table>
+
+      <div class="highlight">
+        <strong>現状のコンテキストは:</strong><br>
+        事前にあかりさんからお伺いした内容と、直近のXの投稿・公開プロフィールをAIで分析してペルソナを作成したものです。<br>
+        <strong>ヒアリングで内容が充実するほど、日次速報・週次レポートの提案精度が上がります。</strong>
+      </div>
+
+      <h4>コンテキストの読み込み先</h4>
+      <table>
+        <tr><th>出力</th><th>about-me.md</th><th>target.md</th><th>strategy.md</th></tr>
+        <tr>
+          <td><strong>日次速報</strong>（毎日2回）</td>
+          <td>読み込む</td>
+          <td>読み込む</td>
+          <td>読み込む</td>
+        </tr>
+        <tr>
+          <td><strong>週次レポート</strong>（月・木）</td>
+          <td>読み込む</td>
+          <td>-</td>
+          <td>読み込む</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
       <h3>日次速報の生成（毎日06:00 / 18:00）</h3>
       <p>収集バッチ完了後、Claude API（Haiku）で速報を自動生成します。</p>
 
