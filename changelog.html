@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>改版履歴｜X活動支援システム - 花ノ宮あかり様</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      background: #f7f5f2;
+      color: #2d2d2d;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+    header {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 48px 32px 40px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: 0.05em; }
+    header .sub { margin-top: 10px; font-size: 0.85rem; opacity: 0.75; letter-spacing: 0.08em; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+    .section-title {
+      font-size: 1.3rem; font-weight: 700; color: #1a1a2e;
+      margin: 48px 0 20px; padding-bottom: 10px;
+      border-bottom: 3px solid #1a1a2e;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    .card h3 { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin-bottom: 12px; }
+    .card h4 { font-size: 0.95rem; font-weight: 700; color: #1a1a2e; margin: 16px 0 8px; }
+    ol, ul { margin-left: 24px; margin-bottom: 12px; }
+    li { margin-bottom: 8px; }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 16px;
+      color: #0f3460;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .back-link:hover { text-decoration: underline; }
+    .label-important {
+      display: inline-block;
+      background: #d32f2f;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 8px;
+      vertical-align: middle;
+      letter-spacing: 0.05em;
+    }
+    .label-change {
+      color: #d32f2f;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-right: 6px;
+    }
+    .footer {
+      margin-top: 60px; padding-top: 30px; border-top: 2px solid #e8e8e8;
+      text-align: center; font-size: 0.85rem; color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>改版履歴</h1>
+    <div class="sub">X活動支援システム｜花ノ宮あかり様</div>
+  </header>
+
+  <div class="container">
+    <a href="index.html" class="back-link">← ご利用ガイドに戻る</a>
+
+    <h2 class="section-title">改版履歴</h2>
+
+    <div class="card">
+      <h3>2026-05-10</h3>
+      <ol>
+        <li><strong>検索キーワードの拡充:</strong> 6件→11件に増やし、収集量を4.3%→25%に向上</li>
+        <li><strong>スコアの精度向上:</strong> いいね数が逆転する問題を解消</li>
+        <li><strong>自己PR・広告の除外強化:</strong> 「♡でお迎え」「DMで見せ」等を自動除外</li>
+        <li><strong>低いいねでも良い投稿を救う:</strong> いいね数は少ないがあかりさんが乗れる投稿を上位に表示</li>
+        <li><strong>ミーム自動検出の精度向上:</strong> テーマ無関係なバズクエリを除外</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>2026-05-13</h3>
+      <ol start="6">
+        <li><strong>高バズ投稿の順位改善:</strong> いいね数万件の投稿がきちんと上位に来るよう調整</li>
+        <li><strong>速報の品質改善:</strong> 「乗れるかどうか」を基準に絞り込むように変更</li>
+        <li><strong>速報の回数調整:</strong> 1日4回→2回（朝・夕のみ）に集約</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>2026-05-19</h3>
+      <ol start="9">
+        <li><strong>同一著者ばかり並ぶ問題の解消:</strong> 同じ人の投稿が2件目以降は順位が下がるよう調整</li>
+        <li><strong>写真提案の改善:</strong> 顔出しなし前提で、体のアングル・衣装・構図で提案するよう変更</li>
+        <li><strong>Xアルゴリズム分析に基づく改善:</strong> 公開されたXのアルゴリズムを分析し、投稿戦略の精度を向上</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3><span class="label-important">重要</span>2026-05-29（大型アップデート）</h3>
+
+      <h4><span class="label-change">[変更点]</span>引用RT候補の品質改善</h4>
+      <ol start="12">
+        <li><strong>海外バイラル投稿の混入排除:</strong> 英語・中国語投稿が上位2位に居座る問題を解消。日本語投稿のみが並ぶように</li>
+        <li><strong>「OL」「JD」誤マッチ修正:</strong> 英単語「Olivia」「goldship」の中の "OL" が誤判定されていた問題を解消</li>
+        <li><strong>ゲーム公式アカウント排除:</strong> 原神公式などのキャラ告知投稿をアカウント単位で除外</li>
+      </ol>
+
+      <h4><span class="label-change">[変更点]</span>投稿ネタ提案の改善</h4>
+      <ol start="15">
+        <li><strong>胸ネタ集中の解消:</strong> AIプロンプトのハードコード（「胸の話題は確実にバズる」等）を削除。多様なテーマから提案されるように</li>
+        <li><strong>シャドウバン関連の表記削除:</strong> ストレスにつながりやすい記述を削除</li>
+        <li><strong>投稿ネタ多様性の明示:</strong> 「3ネタは異なるテーマ・構図」を明示し、同一テーマ連投を回避</li>
+      </ol>
+
+      <h4><span class="label-change">[変更点]</span>調査対象アカウント一覧の刷新（新シート構造）</h4>
+      <ol start="18">
+        <li><strong>ジャンル別 ○/× 判定形式に変更:</strong> 全件機械表示から、ジャンル別10件サンプル × 8ジャンルへ
+          <br>（巨乳・体型系 / コスプレ系 / 裏垢女子 / ナース / 保育士 / 大学生・JD / OL・社会人 / グラビア・モデル / その他）</li>
+        <li><strong>○ で採用（active化）／× で対象外（excluded化）:</strong> F列に記号を入れるだけでDBに反映</li>
+        <li><strong>ランダムサンプリング:</strong> 同日内は同じサンプル、日替わりで違うサンプルが見られる仕組み</li>
+        <li><strong>★必須マーク:</strong> 監視アカウント追加シートで指定したアカウントは★必須として各ジャンル先頭に常時表示、誤×でも消えない保護機能つき</li>
+      </ol>
+
+      <h4><span class="label-change">[変更点]</span>自動アカウント選定の根本見直し</h4>
+      <ol start="22">
+        <li><strong>公式アカウントの自動除外:</strong> bioに「【公式】」「ニュース」「Patriot」「株式会社」等が含まれるアカウントは自動的にactive化されないように</li>
+        <li><strong>ノイズアカウント排除:</strong> 「配信」キーワードがニュースサイトの「配信中」「ニュース配信」に誤ヒットしていた問題を解消</li>
+        <li><strong>英語コスプレ系の救済:</strong> 海外コスプレイヤーの英語表記（"cosplay" "cosplayer"）も認識されるように</li>
+      </ol>
+
+      <h4><span class="label-change">[変更点]</span>監視アカウントの自動発見</h4>
+      <ol start="25">
+        <li><strong>「監視アカウント追加」シートを発見の起点に:</strong> あかりさんが追加したアカウントの「Xのおすすめ」から類似アカウントを発見する仕組みに変更。<strong>シートに追加するだけで自律的に対象が広がる</strong></li>
+      </ol>
+
+      <h4><span class="label-change">[変更点]</span>ジャンル別アカウント収集の強化</h4>
+      <ol start="27">
+        <li><strong>ナース・看護師・保育士の裏垢収集を強化:</strong> 「ナース 裏垢」「保育士 裏アカ」など7パターンのAND検索を追加</li>
+      </ol>
+
+      <h4><span class="label-change">[変更点]</span>その他</h4>
+      <ol start="28">
+        <li><strong>収集元の質チェック:</strong> フォロワー数だけで自動採用される問題を解消（bioのテーマ一致が必須に）</li>
+        <li><strong>bio未取得アカウントの再取得:</strong> 必須アカウントでbioが取れていないものは次回バッチで自動リトライ</li>
+      </ol>
+    </div>
+
+    <a href="index.html" class="back-link">← ご利用ガイドに戻る</a>
+
+    <div class="footer">
+      <p>最終更新: 2026-05-30</p>
+    </div>
+  </div>
+</body>
+</html>

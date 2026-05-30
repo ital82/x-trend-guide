@@ -66,6 +66,10 @@
     </div>
 
     <div class="info">
+      改版履歴は <a href="changelog.html" style="color: #0f3460; font-weight: 700;">改版履歴ページ</a> に移動しました。
+    </div>
+
+    <div class="info">
       このシステムは、あかりさんのX活動を支援するために、話題の投稿を自動で集めて整理します。<br>
       <strong>あかりさんのPCに何もインストールする必要はありません</strong>。開発者側で全て自動実行されます。
     </div>
@@ -725,84 +729,8 @@
       <p><strong>最終確認・投稿は必ずあかりさんが行います。自動投稿は絶対にしません。</strong></p>
     </div>
 
-    <h2 class="section-title">最新の品質改善</h2>
-
-    <div class="card">
-      <h3>2026-05-10</h3>
-      <ol>
-        <li><strong>検索キーワードの拡充:</strong> 6件→11件に増やし、収集量を4.3%→25%に向上</li>
-        <li><strong>スコアの精度向上:</strong> いいね数が逆転する問題を解消</li>
-        <li><strong>自己PR・広告の除外強化:</strong> 「♡でお迎え」「DMで見せ」等を自動除外</li>
-        <li><strong>低いいねでも良い投稿を救う:</strong> いいね数は少ないがあかりさんが乗れる投稿を上位に表示</li>
-        <li><strong>ミーム自動検出の精度向上:</strong> テーマ無関係なバズクエリを除外</li>
-      </ol>
-    </div>
-
-    <div class="card">
-      <h3>2026-05-13</h3>
-      <ol start="6">
-        <li><strong>高バズ投稿の順位改善:</strong> いいね数万件の投稿がきちんと上位に来るよう調整</li>
-        <li><strong>速報の品質改善:</strong> 「乗れるかどうか」を基準に絞り込むように変更</li>
-        <li><strong>速報の回数調整:</strong> 1日4回→2回（朝・夕のみ）に集約</li>
-      </ol>
-    </div>
-
-    <div class="card">
-      <h3>2026-05-19</h3>
-      <ol start="9">
-        <li><strong>同一著者ばかり並ぶ問題の解消:</strong> 同じ人の投稿が2件目以降は順位が下がるよう調整</li>
-        <li><strong>写真提案の改善:</strong> 顔出しなし前提で、体のアングル・衣装・構図で提案するよう変更</li>
-        <li><strong>Xアルゴリズム分析に基づく改善:</strong> 公開されたXのアルゴリズムを分析し、投稿戦略の精度を向上</li>
-      </ol>
-    </div>
-
-    <div class="card">
-      <h3>2026-05-29（大型アップデート）</h3>
-      <h4>引用RT候補の品質改善</h4>
-      <ol start="12">
-        <li><strong>海外バイラル投稿の混入排除:</strong> 英語・中国語投稿が上位2位に居座る問題を解消。日本語投稿のみが並ぶように</li>
-        <li><strong>「OL」「JD」誤マッチ修正:</strong> 英単語「Olivia」「goldship」の中の "OL" が誤判定されていた問題を解消</li>
-        <li><strong>ゲーム公式アカウント排除:</strong> 原神公式などのキャラ告知投稿をアカウント単位で除外</li>
-      </ol>
-
-      <h4>投稿ネタ提案の改善</h4>
-      <ol start="15">
-        <li><strong>胸ネタ集中の解消:</strong> AIプロンプトのハードコード（「胸の話題は確実にバズる」等）を削除。多様なテーマから提案されるように</li>
-        <li><strong>シャドウバン関連の表記削除:</strong> ストレスにつながりやすい記述を削除</li>
-        <li><strong>投稿ネタ多様性の明示:</strong> 「3ネタは異なるテーマ・構図」を明示し、同一テーマ連投を回避</li>
-      </ol>
-
-      <h4>調査対象アカウント一覧の刷新（新シート構造）</h4>
-      <ol start="18">
-        <li><strong>ジャンル別 ○/× 判定形式に変更:</strong> 全件機械表示から、ジャンル別10件サンプル × 8ジャンルへ
-          <br>（巨乳・体型系 / コスプレ系 / 裏垢女子 / ナース / 保育士 / 大学生・JD / OL・社会人 / グラビア・モデル / その他）</li>
-        <li><strong>○ で採用（active化）／× で対象外（excluded化）:</strong> F列に記号を入れるだけでDBに反映</li>
-        <li><strong>ランダムサンプリング:</strong> 同日内は同じサンプル、日替わりで違うサンプルが見られる仕組み</li>
-        <li><strong>★必須マーク:</strong> 監視アカウント追加シートで指定したアカウントは★必須として各ジャンル先頭に常時表示、誤×でも消えない保護機能つき</li>
-      </ol>
-
-      <h4>自動アカウント選定の根本見直し</h4>
-      <ol start="22">
-        <li><strong>公式アカウントの自動除外:</strong> bioに「【公式】」「ニュース」「Patriot」「株式会社」等が含まれるアカウントは自動的にactive化されないように</li>
-        <li><strong>ノイズアカウント排除:</strong> 「配信」キーワードがニュースサイトの「配信中」「ニュース配信」に誤ヒットしていた問題を解消</li>
-        <li><strong>英語コスプレ系の救済:</strong> 海外コスプレイヤーの英語表記（"cosplay" "cosplayer"）も認識されるように</li>
-      </ol>
-
-      <h4>監視アカウントの自動発見</h4>
-      <ol start="25">
-        <li><strong>「監視アカウント追加」シートを発見の起点に:</strong> あかりさんが追加したアカウントの「Xのおすすめ」から類似アカウントを発見する仕組みに変更。<strong>シートに追加するだけで自律的に対象が広がる</strong></li>
-      </ol>
-
-      <h4>ジャンル別アカウント収集の強化</h4>
-      <ol start="27">
-        <li><strong>ナース・看護師・保育士の裏垢収集を強化:</strong> 「ナース 裏垢」「保育士 裏アカ」など7パターンのAND検索を追加</li>
-      </ol>
-
-      <h4>その他</h4>
-      <ol start="28">
-        <li><strong>収集元の質チェック:</strong> フォロワー数だけで自動採用される問題を解消（bioのテーマ一致が必須に）</li>
-        <li><strong>bio未取得アカウントの再取得:</strong> 必須アカウントでbioが取れていないものは次回バッチで自動リトライ</li>
-      </ol>
+    <div class="card" style="text-align: center;">
+      <a href="changelog.html" style="color: #0f3460; font-weight: 700; font-size: 1.05rem; text-decoration: none;">改版履歴はこちら →</a>
     </div>
 
     <div class="footer">
